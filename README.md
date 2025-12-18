@@ -1,6 +1,6 @@
 # Realestate - منصة عقارية
 
-A modern Arabic real estate platform built with Next.js 15, featuring an interactive map interface, property listings, and user authentication.
+A modern Arabic real estate platform built with Next.js 16, featuring an interactive map interface, property listings, and user authentication.
 
 ## Demo
 
@@ -17,11 +17,12 @@ Live demo: [v0-app-clone-gold.vercel.app](https://v0-app-clone-gold.vercel.app)
 
 ## Tech Stack
 
-- **Framework**: Next.js 15 (App Router)
+- **Framework**: Next.js 16 (App Router)
 - **Styling**: Tailwind CSS v4
 - **UI Components**: shadcn/ui
 - **Maps**: MapLibre GL JS with CartoDB tiles
 - **Font**: Noto Sans Arabic
+- **React**: React 19.2
 
 ## Project Structure
 
