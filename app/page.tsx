@@ -11,11 +11,21 @@ export default function HomePage() {
     <div dir="rtl" className="min-h-screen bg-background">
       <Header />
       <main>
-        <HeroSection />
-        <FeaturesSection />
-        <FeaturedProperties />
-        <HowItWorks />
-        <ContactForm />
+        <section id="hero">
+          <HeroSection />
+        </section>
+        <section id="features">
+          <FeaturesSection />
+        </section>
+        <section id="properties">
+          <FeaturedProperties />
+        </section>
+        <section id="how-it-works">
+          <HowItWorks />
+        </section>
+        <section id="contact">
+          <ContactForm />
+        </section>
       </main>
       <Footer />
     </div>

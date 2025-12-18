@@ -16,7 +16,7 @@ export function Header() {
           <li className="hidden md:block">
             <Link
               className="text-sm font-medium text-gray-600 hover:text-primary transition-colors px-3 py-2"
-              href="#contact"
+              href="/#contact"
             >
               تواصل معنا
             </Link>
@@ -32,17 +32,14 @@ export function Header() {
           <li className="hidden md:block">
             <Link
               className="text-sm font-medium text-gray-600 hover:text-primary transition-colors px-3 py-2"
-              href="#hero"
+              href="/#features"
             >
               من نحن
             </Link>
           </li>
           <li className="hidden md:block">
-            <Link
-              className="text-sm font-medium text-gray-600 hover:text-primary transition-colors px-3 py-2"
-              href="#map"
-            >
-              الخريطة
+            <Link className="text-sm font-medium text-gray-600 hover:text-primary transition-colors px-3 py-2" href="/">
+              الرئيسية
             </Link>
           </li>
           <li className="hidden md:block">
@@ -79,21 +76,21 @@ export function Header() {
               العقارات
             </Link>
             <Link
-              href="#hero"
+              href="/#features"
               className="text-sm font-medium text-gray-600 py-2 px-3 rounded-lg hover:bg-gray-100 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               من نحن
             </Link>
             <Link
-              href="#map"
+              href="/#properties"
               className="text-sm font-medium text-gray-600 py-2 px-3 rounded-lg hover:bg-gray-100 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              الخريطة
+              العقارات المميزة
             </Link>
             <Link
-              href="#contact"
+              href="/#contact"
               className="text-sm font-medium text-gray-600 py-2 px-3 rounded-lg hover:bg-gray-100 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
