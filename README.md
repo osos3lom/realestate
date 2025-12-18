@@ -1,30 +1,79 @@
-# App clone
+# Realestate - منصة عقارية
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A modern Arabic real estate platform built with Next.js 15, featuring an interactive map interface, property listings, and user authentication.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/osos3loms-projects/v0-app-clone)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/vGARVQ2FFZu)
+## Features
 
-## Overview
+- **Interactive Map Hero** - MapLibre GL JS with CartoDB dark tiles displaying property locations
+- **Property Listings** - Browse properties with advanced filtering (type, location, bedrooms, area, price)
+- **Property Details** - Detailed property pages with image galleries, specifications, and agent contact forms
+- **RTL Support** - Full right-to-left layout for Arabic language
+- **Authentication** - Login, signup, and password recovery pages
+- **Responsive Design** - Mobile-first design with glassmorphic UI elements
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## Tech Stack
 
-## Deployment
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui
+- **Maps**: MapLibre GL JS with CartoDB tiles
+- **Font**: Noto Sans Arabic
 
-Your project is live at:
+## Project Structure
 
-**[https://vercel.com/osos3loms-projects/v0-app-clone](https://vercel.com/osos3loms-projects/v0-app-clone)**
+```
+app/
+├── auth/
+│   ├── login/
+│   ├── signup/
+│   └── forgot-password/
+├── realestate/
+│   ├── [id]/          # Property details
+│   └── page.tsx       # Property listings
+├── layout.tsx
+└── page.tsx           # Landing page
 
-## Build your app
+components/
+├── auth/              # Authentication forms
+├── ui/                # shadcn/ui components
+├── header.tsx         # Navigation bar
+├── hero-section.tsx   # Map hero with control panel
+├── control-panel.tsx  # Property search filters
+├── map-view.tsx       # MapLibre GL map component
+├── featured-properties.tsx
+├── features-section.tsx
+├── how-it-works.tsx
+├── property-filters.tsx
+├── property-grid.tsx
+├── property-details.tsx
+├── contact-form.tsx
+└── footer.tsx
+```
 
-Continue building your app on:
+## Getting Started
 
-**[https://v0.app/chat/vGARVQ2FFZu](https://v0.app/chat/vGARVQ2FFZu)**
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000)
 
-## How It Works
+## Pages
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+| Route | Description |
+|-------|-------------|
+| `/` | Landing page with map hero, features, and contact form |
+| `/realestate` | Property listings with filters |
+| `/realestate/[id]` | Individual property details |
+| `/auth/login` | User login |
+| `/auth/signup` | User registration |
+| `/auth/forgot-password` | Password recovery |
+
+## License
+
+MIT

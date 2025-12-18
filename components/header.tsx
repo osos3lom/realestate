@@ -34,7 +34,7 @@ export function Header() {
           {/* Center logo */}
           <li className="flex-shrink-0 px-4">
             <Link href="/" className="flex items-center">
-              <Image src="/logo.jpg" alt="عمار العالم" width={80} height={40} className="h-10 w-auto" />
+              <Image src="/logo.jpg" alt="realestate" width={80} height={40} className="h-10 w-auto" />
             </Link>
           </li>
 

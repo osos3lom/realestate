@@ -13,7 +13,7 @@ export default function LoginPage() {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
                 <Building2 className="h-6 w-6 text-primary-foreground" />
               </div>
-              <span className="text-xl font-bold text-foreground">عمار العالم</span>
+              <span className="text-xl font-bold text-foreground">realestate</span>
             </Link>
             <h1 className="text-2xl font-bold text-foreground mb-2">تسجيل الدخول</h1>
             <p className="text-muted-foreground">مرحباً بعودتك! سجل دخولك للمتابعة</p>
@@ -38,7 +38,7 @@ export default function LoginPage() {
               <Building2 className="h-12 w-12 text-primary-foreground" />
             </div>
           </div>
-          <h2 className="text-3xl font-bold text-foreground mb-4">منصة عمار العالم</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-4">منصة realestate</h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             اكتشف فرص استثمارية مميزة. سوّق عقاراتك بسهولة. ابحث عن منزل أحلامك. نربط المستثمرين والمسوقين والبائعين
             والمشترين على منصة واحدة.

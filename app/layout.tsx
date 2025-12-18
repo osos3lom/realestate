@@ -7,7 +7,7 @@ import "./globals.css"
 const notoSansArabic = Noto_Sans_Arabic({ subsets: ["arabic"] })
 
 export const metadata: Metadata = {
-  title: "عمار العالم - منصة العقارات",
+  title: "realestate - منصة العقارات",
   description: "اكتشف فرص استثمارية مميزة. سوّق عقاراتك بسهولة. ابحث عن منزل أحلامك.",
     generator: 'v0.app'
 }

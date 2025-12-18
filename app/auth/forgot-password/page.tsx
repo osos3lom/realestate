@@ -11,7 +11,7 @@ export default function ForgotPasswordPage() {
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
               <Building2 className="h-6 w-6 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold text-foreground">عمار العالم</span>
+            <span className="text-xl font-bold text-foreground">realestate</span>
           </Link>
           <h1 className="text-2xl font-bold text-foreground mb-2">نسيت كلمة المرور؟</h1>
           <p className="text-muted-foreground">أدخل بريدك الإلكتروني وسنرسل لك رابط إعادة التعيين</p>

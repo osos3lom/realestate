@@ -38,7 +38,7 @@ export function FeaturesSection() {
     <section id="features" className="py-20 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-foreground lg:text-4xl mb-4 text-balance">منصة عمار العالم</h2>
+          <h2 className="text-3xl font-bold text-foreground lg:text-4xl mb-4 text-balance">منصة realestate</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
             المنصة تقدم تجربة مستخدم فريدة توفر فرص استثمار وتسويق العقار والبحث عن مسكن
           </p>
@@ -62,7 +62,7 @@ export function FeaturesSection() {
         <div className="mt-16 rounded-2xl bg-card border p-8 lg:p-12">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">الرؤية في عمار</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">الرؤية في realestate</h3>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 تتمثل رؤيتنا في إحداث ثورة في مجال العقارات من خلال الربط بين المستثمرين والمسوقين والبائعين والمشترين
                 على منصة مبتكرة. نسعى جاهدين لتبسيط المعاملات العقارية وتعزيز الشفافية بين أصحاب المصلحة.
@@ -73,8 +73,8 @@ export function FeaturesSection() {
                 <div className="flex h-20 w-20 mx-auto items-center justify-center rounded-full bg-primary mb-4">
                   <Building2 className="h-10 w-10 text-primary-foreground" />
                 </div>
-                <div className="text-xl font-semibold text-foreground">عمار العالم</div>
-                <div className="text-sm text-muted-foreground">@alalam_amar</div>
+                <div className="text-xl font-semibold text-foreground">realestate</div>
+                <div className="text-sm text-muted-foreground">@realestate</div>
               </div>
             </div>
           </div>
