@@ -38,7 +38,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative h-[85vh] min-h-[600px] w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden">
       {/* Map Container - dynamically loaded */}
       <MapView />
 

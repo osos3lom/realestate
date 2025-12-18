@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
@@ -10,8 +9,8 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full">
-      <nav className="mx-4 mt-4 rounded-full bg-white/80 backdrop-blur-md border border-gray-200/40 shadow-lg">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full flex justify-center">
+      <nav className="mx-4 mt-4 w-fit rounded-full bg-white/80 backdrop-blur-md border border-gray-200/40 shadow-lg">
         <ul className="flex flex-nowrap justify-center items-center list-none px-6 py-3 gap-2 md:gap-6">
           {/* Right side items (appear first in RTL) */}
           <li className="hidden md:block">
@@ -30,15 +29,6 @@ export function Header() {
               العقارات
             </Link>
           </li>
-
-          {/* Center logo */}
-          <li className="flex-shrink-0 px-4">
-            <Link href="/" className="flex items-center">
-              <Image src="/logo.jpg" alt="realestate" width={80} height={40} className="h-10 w-auto" />
-            </Link>
-          </li>
-
-          {/* Left side items (appear last in RTL) */}
           <li className="hidden md:block">
             <Link
               className="text-sm font-medium text-gray-600 hover:text-primary transition-colors px-3 py-2"
@@ -62,7 +52,7 @@ export function Header() {
           </li>
 
           {/* Mobile menu button */}
-          <li className="md:hidden mr-auto">
+          <li className="md:hidden">
             <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-gray-700">
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -72,7 +62,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="mx-4 mt-2 rounded-2xl bg-white/95 backdrop-blur-md border border-gray-200/40 shadow-lg p-4 md:hidden">
+        <div className="absolute top-16 left-4 right-4 rounded-2xl bg-white/95 backdrop-blur-md border border-gray-200/40 shadow-lg p-4 md:hidden">
           <nav className="flex flex-col gap-3">
             <Link
               href="/"
