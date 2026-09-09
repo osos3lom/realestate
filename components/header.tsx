@@ -5,17 +5,19 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
+import { ThemeToggle } from "@/components/theme-toggle"
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full flex justify-center">
-      <nav className="mx-4 mt-4 w-fit rounded-full bg-white/80 backdrop-blur-md border border-gray-200/40 shadow-lg">
-        <ul className="flex flex-nowrap justify-center items-center list-none px-6 py-3 gap-2 md:gap-6">
+      <nav className="mx-4 mt-4 w-fit rounded-full bg-background/90 dark:bg-card/90 backdrop-blur-md border border-border/60 shadow-xl transition-colors">
+        <ul className="flex flex-nowrap justify-center items-center list-none px-5 py-2.5 gap-1.5 md:gap-4">
           {/* Right side items (appear first in RTL) */}
           <li className="hidden md:block">
             <Link
-              className="text-sm font-medium text-gray-600 hover:text-primary transition-colors px-3 py-2"
+              className="text-xs lg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-2.5 py-1.5"
               href="/#contact"
             >
               تواصل معنا
@@ -23,7 +25,7 @@ export function Header() {
           </li>
           <li className="hidden md:block">
             <Link
-              className="text-sm font-medium text-gray-600 hover:text-primary transition-colors px-3 py-2"
+              className="text-xs lg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-2.5 py-1.5"
               href="/realestate"
             >
               العقارات
@@ -31,26 +33,37 @@ export function Header() {
           </li>
           <li className="hidden md:block">
             <Link
-              className="text-sm font-medium text-gray-600 hover:text-primary transition-colors px-3 py-2"
+              className="text-xs lg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-2.5 py-1.5"
+              href="/rentals"
+            >
+              الإيجارات
+            </Link>
+          </li>
+          <li className="hidden md:block">
+            <Link
+              className="text-xs lg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-2.5 py-1.5"
               href="/#features"
             >
               من نحن
             </Link>
           </li>
           <li className="hidden md:block">
-            <Link className="text-sm font-medium text-gray-600 hover:text-primary transition-colors px-3 py-2" href="/">
+            <Link className="text-xs lg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-2.5 py-1.5" href="/">
               الرئيسية
             </Link>
           </li>
           <li className="hidden md:block">
-            <Button variant="ghost" size="sm" asChild className="text-gray-700 hover:text-primary">
+            <Button variant="ghost" size="sm" asChild className="text-foreground hover:text-primary text-xs lg:text-sm font-semibold">
               <Link href="/auth/login">تسجيل الدخول</Link>
             </Button>
+          </li>
+          <li className="flex items-center">
+            <ThemeToggle />
           </li>
 
           {/* Mobile menu button */}
           <li className="md:hidden">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-gray-700">
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-foreground">
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </li>
@@ -59,44 +72,52 @@ export function Header() {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="absolute top-16 left-4 right-4 rounded-2xl bg-white/95 backdrop-blur-md border border-gray-200/40 shadow-lg p-4 md:hidden">
-          <nav className="flex flex-col gap-3">
+        <div className="absolute top-16 left-4 right-4 rounded-2xl bg-card/95 text-card-foreground backdrop-blur-md border border-border/60 shadow-xl p-4 md:hidden">
+          <nav className="flex flex-col gap-2">
             <Link
               href="/"
-              className="text-sm font-medium py-2 px-3 rounded-lg hover:bg-gray-100 transition-colors text-gray-800"
+              className="text-xs font-semibold py-2 px-3 rounded-lg hover:bg-muted text-foreground transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               الرئيسية
             </Link>
             <Link
               href="/realestate"
-              className="text-sm font-medium text-gray-600 py-2 px-3 rounded-lg hover:bg-gray-100 transition-colors"
+              className="text-xs font-semibold text-muted-foreground hover:text-foreground py-2 px-3 rounded-lg hover:bg-muted transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               العقارات
             </Link>
             <Link
+              href="/rentals"
+              className="text-xs font-semibold text-muted-foreground hover:text-foreground py-2 px-3 rounded-lg hover:bg-muted transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              الإيجارات
+            </Link>
+            <Link
               href="/#features"
-              className="text-sm font-medium text-gray-600 py-2 px-3 rounded-lg hover:bg-gray-100 transition-colors"
+              className="text-xs font-semibold text-muted-foreground hover:text-foreground py-2 px-3 rounded-lg hover:bg-muted transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               من نحن
             </Link>
             <Link
               href="/#properties"
-              className="text-sm font-medium text-gray-600 py-2 px-3 rounded-lg hover:bg-gray-100 transition-colors"
+              className="text-xs font-semibold text-muted-foreground hover:text-foreground py-2 px-3 rounded-lg hover:bg-muted transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               العقارات المميزة
             </Link>
             <Link
               href="/#contact"
-              className="text-sm font-medium text-gray-600 py-2 px-3 rounded-lg hover:bg-gray-100 transition-colors"
+              className="text-xs font-semibold text-muted-foreground hover:text-foreground py-2 px-3 rounded-lg hover:bg-muted transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               تواصل معنا
             </Link>
-            <div className="flex items-center justify-end pt-3 border-t border-gray-200">
+            <div className="flex items-center justify-between pt-3 border-t border-border">
+              <ThemeToggle />
               <Button size="sm" asChild>
                 <Link href="/auth/login">تسجيل الدخول</Link>
               </Button>

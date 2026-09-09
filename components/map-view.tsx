@@ -65,31 +65,7 @@ export function MapView() {
 
         map.current = new maplibregl.Map({
           container: mapContainer.current!,
-          style: {
-            version: 8,
-            sources: {
-              carto: {
-                type: "raster",
-                tiles: [
-                  "https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
-                  "https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
-                  "https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
-                ],
-                tileSize: 256,
-                attribution:
-                  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-              },
-            },
-            layers: [
-              {
-                id: "carto-layer",
-                type: "raster",
-                source: "carto",
-                minzoom: 0,
-                maxzoom: 22,
-              },
-            ],
-          },
+          style: "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
           center: [46.6753, 24.7136],
           zoom: 11,
           attributionControl: false,
@@ -106,7 +82,7 @@ export function MapView() {
             el.className = "property-marker"
             el.innerHTML = `
               <div class="marker-pin">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#6366f1" stroke="#ffffff" strokeWidth="1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#3b82f6" stroke="#ffffff" strokeWidth="1.5">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3" fill="#ffffff"></circle>
                 </svg>
@@ -114,9 +90,9 @@ export function MapView() {
             `
 
             const popup = new maplibregl.Popup({ offset: 25, closeButton: false }).setHTML(`
-              <div style="text-align: right; font-family: 'Noto Sans Arabic', sans-serif; padding: 8px;">
-                <strong style="font-size: 14px; color: #1f2937;">${property.title}</strong>
-                <p style="margin: 4px 0 0; color: #6366f1; font-weight: 600;">${property.price}</p>
+              <div style="text-align: right; font-family: 'Noto Sans Arabic', sans-serif; padding: 10px; background: #18181b; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                <strong style="font-size: 14px; color: #f4f4f5; display: block; margin-bottom: 4px;">${property.title}</strong>
+                <p style="margin: 0; color: #60a5fa; font-weight: 700; font-size: 13px;">${property.price}</p>
               </div>
             `)
 

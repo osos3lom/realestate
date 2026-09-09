@@ -107,10 +107,10 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
   function renderPanelContent() {
     const availableDistricts = pendingFilters.city ? districts[pendingFilters.city] || [] : []
     return (
-      <div dir="rtl" className="w-full overflow-hidden">
+      <div dir="rtl" className="w-full overflow-hidden text-card-foreground">
         {/* Property Type Filter */}
         <div className="mb-4">
-          <h3 className="text-sm font-medium mb-2 truncate">نوع الشقة</h3>
+          <h3 className="text-xs font-bold text-foreground mb-2 truncate">نوع الشقة</h3>
           <div className="flex gap-2 flex-wrap">
             {[
               { key: null, label: "الكل" },
@@ -120,10 +120,10 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
               <button
                 key={option.key || "all"}
                 onClick={() => updateFilter("type", option.key)}
-                className={`px-3 py-1.5 rounded-full text-sm font-medium ${
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                   pendingFilters.type === option.key
-                    ? "bg-primary text-white"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                    ? "bg-primary text-primary-foreground shadow-sm ring-1 ring-primary"
+                    : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80 border border-border/60"
                 }`}
               >
                 {option.label}
@@ -134,16 +134,16 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
 
         {/* Location Filters */}
         <div className="mb-4">
-          <h3 className="text-sm font-medium mb-2 truncate">الموقع</h3>
+          <h3 className="text-xs font-bold text-foreground mb-2 truncate">الموقع</h3>
           {/* City Filter */}
           <select
             value={pendingFilters.city || ""}
             onChange={(e) => updateFilter("city", e.target.value || null)}
-            className="w-full mb-2 p-2 border rounded-md text-sm bg-white"
+            className="w-full mb-2 p-2 border border-input rounded-xl text-xs bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-colors cursor-pointer"
           >
-            <option value="">جميع المدن</option>
+            <option value="" className="bg-popover text-popover-foreground">جميع المدن</option>
             {cities.map((city) => (
-              <option key={city} value={city}>
+              <option key={city} value={city} className="bg-popover text-popover-foreground">
                 {city}
               </option>
             ))}
@@ -153,11 +153,11 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
             <select
               value={pendingFilters.district || ""}
               onChange={(e) => updateFilter("district", e.target.value || null)}
-              className="w-full p-2 border rounded-md text-sm bg-white"
+              className="w-full p-2 border border-input rounded-xl text-xs bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-colors cursor-pointer"
             >
-              <option value="">جميع الأحياء</option>
+              <option value="" className="bg-popover text-popover-foreground">جميع الأحياء</option>
               {availableDistricts.map((district) => (
-                <option key={district} value={district}>
+                <option key={district} value={district} className="bg-popover text-popover-foreground">
                   {district}
                 </option>
               ))}
@@ -169,16 +169,16 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
         <div className="mb-4">
           {/* Bedrooms */}
           <div className="mb-3">
-            <h3 className="text-sm font-medium mb-2 truncate">عدد الغرف</h3>
+            <h3 className="text-xs font-bold text-foreground mb-2 truncate">عدد الغرف</h3>
             <div className="flex gap-2">
               <select
                 value={pendingFilters.bedroomsMin || ""}
                 onChange={(e) => updateFilter("bedroomsMin", e.target.value ? Number.parseInt(e.target.value) : null)}
-                className="flex-1 min-w-0 p-2 border rounded-md text-sm bg-white"
+                className="flex-1 min-w-0 p-2 border border-input rounded-xl text-xs bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-colors cursor-pointer"
               >
-                <option value="">من</option>
+                <option value="" className="bg-popover text-popover-foreground">من</option>
                 {[1, 2, 3, 4, 5, 6].map((num) => (
-                  <option key={num} value={num}>
+                  <option key={num} value={num} className="bg-popover text-popover-foreground">
                     {num}
                   </option>
                 ))}
@@ -186,11 +186,11 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
               <select
                 value={pendingFilters.bedroomsMax || ""}
                 onChange={(e) => updateFilter("bedroomsMax", e.target.value ? Number.parseInt(e.target.value) : null)}
-                className="flex-1 min-w-0 p-2 border rounded-md text-sm bg-white"
+                className="flex-1 min-w-0 p-2 border border-input rounded-xl text-xs bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-colors cursor-pointer"
               >
-                <option value="">إلى</option>
+                <option value="" className="bg-popover text-popover-foreground">إلى</option>
                 {[1, 2, 3, 4, 5, 6].map((num) => (
-                  <option key={num} value={num}>
+                  <option key={num} value={num} className="bg-popover text-popover-foreground">
                     {num}
                   </option>
                 ))}
@@ -199,21 +199,21 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
           </div>
           {/* Area */}
           <div className="w-full">
-            <h3 className="text-sm font-medium mb-2 truncate">المساحة (م²)</h3>
+            <h3 className="text-xs font-bold text-foreground mb-2 truncate">المساحة (م²)</h3>
             <div className="flex gap-2 w-full">
               <input
                 type="number"
                 placeholder="من"
                 value={pendingFilters.areaMin || ""}
                 onChange={(e) => updateFilter("areaMin", e.target.value ? Number.parseInt(e.target.value) : null)}
-                className="flex-1 min-w-0 p-2 border rounded-md text-sm bg-white"
+                className="flex-1 min-w-0 p-2 border border-input rounded-xl text-xs bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-colors"
               />
               <input
                 type="number"
                 placeholder="إلى"
                 value={pendingFilters.areaMax || ""}
                 onChange={(e) => updateFilter("areaMax", e.target.value ? Number.parseInt(e.target.value) : null)}
-                className="flex-1 min-w-0 p-2 border rounded-md text-sm bg-white"
+                className="flex-1 min-w-0 p-2 border border-input rounded-xl text-xs bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-colors"
               />
             </div>
           </div>
@@ -221,21 +221,21 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
 
         {/* Price Filter */}
         <div className="mb-4 w-full">
-          <h3 className="text-sm font-medium mb-2 truncate">السعر (ر.س)</h3>
+          <h3 className="text-xs font-bold text-foreground mb-2 truncate">السعر (ر.س)</h3>
           <div className="flex gap-2 w-full">
             <input
               type="number"
               placeholder="من"
               value={pendingFilters.priceMin || ""}
               onChange={(e) => updateFilter("priceMin", e.target.value ? Number.parseInt(e.target.value) : null)}
-              className="flex-1 min-w-0 p-2 border rounded-md text-sm bg-white"
+              className="flex-1 min-w-0 p-2 border border-input rounded-xl text-xs bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-colors"
             />
             <input
               type="number"
               placeholder="إلى"
               value={pendingFilters.priceMax || ""}
               onChange={(e) => updateFilter("priceMax", e.target.value ? Number.parseInt(e.target.value) : null)}
-              className="flex-1 min-w-0 p-2 border rounded-md text-sm bg-white"
+              className="flex-1 min-w-0 p-2 border border-input rounded-xl text-xs bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-colors"
             />
           </div>
         </div>
@@ -243,7 +243,7 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
         {/* Conditional Filters Based on Type */}
         {pendingFilters.type === "للبيع" && (
           <div className="mb-4">
-            <h3 className="text-sm font-medium mb-2 truncate">حالة العقار</h3>
+            <h3 className="text-xs font-bold text-foreground mb-2 truncate">حالة العقار</h3>
             <div className="flex flex-wrap gap-2">
               {[
                 { key: null, label: "الكل" },
@@ -254,10 +254,10 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
                 <button
                   key={option.key || "all"}
                   onClick={() => updateFilter("condition", option.key)}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium ${
+                  className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                     pendingFilters.condition === option.key
-                      ? "bg-primary text-white"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                      ? "bg-primary text-primary-foreground shadow-sm ring-1 ring-primary"
+                      : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80 border border-border/60"
                   }`}
                 >
                   {option.label}
@@ -269,7 +269,7 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
 
         {pendingFilters.type === "للإيجار" && (
           <div className="mb-4">
-            <h3 className="text-sm font-medium mb-2 truncate">الأثاث</h3>
+            <h3 className="text-xs font-bold text-foreground mb-2 truncate">الأثاث</h3>
             <div className="flex gap-2 flex-wrap">
               {[
                 { key: null, label: "الكل" },
@@ -279,10 +279,10 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
                 <button
                   key={option.key?.toString() || "all"}
                   onClick={() => updateFilter("furnished", option.key)}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium ${
+                  className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                     pendingFilters.furnished === option.key
-                      ? "bg-primary text-white"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                      ? "bg-primary text-primary-foreground shadow-sm ring-1 ring-primary"
+                      : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80 border border-border/60"
                   }`}
                 >
                   {option.label}
@@ -293,16 +293,16 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
         )}
 
         {/* Apply and Clear Buttons */}
-        <div className="flex gap-2 mt-4">
+        <div className="flex gap-2 mt-4 pt-2 border-t border-border/40">
           <button
             onClick={handleApply}
-            className="flex-1 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 text-sm font-medium"
+            className="flex-1 px-4 py-2 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 text-xs font-bold shadow-sm transition-colors cursor-pointer"
           >
             تطبيق
           </button>
           <button
             onClick={handleClear}
-            className="flex-1 px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 text-sm font-medium"
+            className="flex-1 px-4 py-2 bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80 border border-border/80 rounded-xl text-xs font-semibold transition-colors cursor-pointer"
           >
             مسح الفلاتر
           </button>
@@ -315,7 +315,7 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
     <>
       {/* Toggle button for small screens */}
       <button
-        className="fixed top-20 right-4 z-30 p-2 rounded-full bg-primary text-white shadow-lg lg:hidden"
+        className="fixed top-20 right-4 z-30 p-2.5 rounded-full bg-primary text-primary-foreground shadow-xl lg:hidden cursor-pointer hover:bg-primary/90 transition-transform active:scale-95"
         onClick={() => setShowPopup(true)}
         aria-label="فتح الفلاتر"
         style={{ display: showPopup ? "none" : undefined }}
@@ -326,7 +326,7 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-6 h-6"
+          className="w-5 h-5"
         >
           <path
             strokeLinecap="round"
@@ -338,11 +338,11 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
 
       {/* Popup modal for small screens */}
       {showPopup && (
-        <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/40 lg:hidden">
-          <div className="relative w-[90vw] max-w-md bg-white rounded-xl shadow-lg p-4 animate-fade-in max-h-[85vh] overflow-hidden">
+        <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/60 backdrop-blur-xs lg:hidden p-4">
+          <div className="relative w-full max-w-md bg-card text-card-foreground border border-border rounded-2xl shadow-2xl p-5 animate-fade-in max-h-[85vh] overflow-hidden">
             {/* Close button */}
             <button
-              className="absolute top-3 left-3 p-1.5 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 z-10"
+              className="absolute top-4 left-4 p-1.5 rounded-full bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground z-10 transition-colors cursor-pointer"
               onClick={() => setShowPopup(false)}
               aria-label="إغلاق الفلاتر"
             >
@@ -358,13 +358,13 @@ export const ControlPanel = ({ cities, districts, onFilterChange }: ControlPanel
               </svg>
             </button>
             {/* Panel content */}
-            <div className="overflow-y-auto max-h-[80vh] pt-2">{renderPanelContent()}</div>
+            <div className="overflow-y-auto max-h-[75vh] pt-2">{renderPanelContent()}</div>
           </div>
         </div>
       )}
 
       {/* Always visible on large screens */}
-      <div className="hidden lg:block absolute top-20 right-4 p-4 shadow-lg backdrop-blur-md rounded-xl z-20 w-[320px] border border-white/30 bg-white/95">
+      <div className="hidden lg:block absolute top-20 right-4 p-4 shadow-2xl backdrop-blur-md rounded-2xl z-20 w-[320px] border border-border bg-card/95 text-card-foreground">
         {renderPanelContent()}
       </div>
     </>

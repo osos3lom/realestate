@@ -7,105 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Bed, Bath, Maximize, MapPin, Grid3X3, LayoutList, Heart } from "lucide-react"
-
-const properties = [
-  {
-    id: "1",
-    title: "شقة للبيع",
-    type: "للبيع",
-    propertyType: "شقة",
-    location: "جدة - الحمدانية",
-    bedrooms: 4,
-    bathrooms: 3,
-    area: 287,
-    price: 229994,
-    image: "/modern-apartment-exterior.png",
-  },
-  {
-    id: "2",
-    title: "شقة فاخرة",
-    type: "للبيع",
-    propertyType: "شقة",
-    location: "جدة - المنار",
-    bedrooms: 4,
-    bathrooms: 2,
-    area: 200,
-    price: 200000,
-    image: "/luxury-apartment-living-room.png",
-  },
-  {
-    id: "3",
-    title: "فيلا عصرية",
-    type: "للبيع",
-    propertyType: "فيلا",
-    location: "الرياض - النرجس",
-    bedrooms: 5,
-    bathrooms: 4,
-    area: 450,
-    price: 1500000,
-    image: "/modern-villa-exterior-white-architecture.jpg",
-  },
-  {
-    id: "4",
-    title: "شقة للإيجار",
-    type: "للإيجار",
-    propertyType: "شقة",
-    location: "الدمام - الفيصلية",
-    bedrooms: 3,
-    bathrooms: 2,
-    area: 150,
-    price: 35000,
-    image: "/cozy-apartment-bedroom-interior.jpg",
-  },
-  {
-    id: "5",
-    title: "دوبلكس فخم",
-    type: "للبيع",
-    propertyType: "دوبلكس",
-    location: "الرياض - العليا",
-    bedrooms: 6,
-    bathrooms: 5,
-    area: 380,
-    price: 1800000,
-    image: "/luxury-duplex-interior.jpg",
-  },
-  {
-    id: "6",
-    title: "شقة استوديو",
-    type: "للإيجار",
-    propertyType: "شقة",
-    location: "جدة - الروضة",
-    bedrooms: 1,
-    bathrooms: 1,
-    area: 55,
-    price: 18000,
-    image: "/modern-studio-apartment.png",
-  },
-  {
-    id: "7",
-    title: "فيلا مع مسبح",
-    type: "للبيع",
-    propertyType: "فيلا",
-    location: "الخبر - الراكة",
-    bedrooms: 7,
-    bathrooms: 6,
-    area: 600,
-    price: 2500000,
-    image: "/luxury-villa-pool.png",
-  },
-  {
-    id: "8",
-    title: "شقة عائلية",
-    type: "للإيجار",
-    propertyType: "شقة",
-    location: "مكة - العزيزية",
-    bedrooms: 4,
-    bathrooms: 3,
-    area: 180,
-    price: 45000,
-    image: "/family-apartment-living-room.png",
-  },
-]
+import { allProperties } from "@/lib/data/properties"
 
 export function PropertyGrid() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
@@ -121,7 +23,7 @@ export function PropertyGrid() {
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-muted-foreground">
-          عرض <span className="font-medium text-foreground">{properties.length}</span> عقار
+          عرض <span className="font-medium text-foreground">{allProperties.length}</span> عقار
         </p>
         <div className="flex items-center gap-3">
           <Select value={sortBy} onValueChange={setSortBy}>
@@ -160,7 +62,7 @@ export function PropertyGrid() {
 
       {/* Property Grid/List */}
       <div className={viewMode === "grid" ? "grid gap-6 sm:grid-cols-2 xl:grid-cols-3" : "flex flex-col gap-4"}>
-        {properties.map((property) => (
+        {allProperties.map((property) => (
           <Card
             key={property.id}
             className={`overflow-hidden group hover:shadow-lg transition-shadow ${
@@ -169,7 +71,7 @@ export function PropertyGrid() {
           >
             <div className={`relative overflow-hidden ${viewMode === "list" ? "w-64 shrink-0" : "aspect-[4/3]"}`}>
               <img
-                src={property.image || "/placeholder.svg"}
+                src={property.images?.[0] || "/placeholder.svg"}
                 alt={property.title}
                 className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
               />

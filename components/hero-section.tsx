@@ -43,35 +43,35 @@ export function HeroSection() {
       <MapView />
 
       {/* Overlay gradient for better text readability */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/45" />
 
       {/* Control Panel - Top Right */}
       <ControlPanel cities={cities} districts={districts} onFilterChange={handleFilterChange} />
 
       {/* Hero Text - Bottom Left */}
-      <div className="absolute bottom-8 left-8 z-10 max-w-lg space-y-4">
-        <h1 className="text-3xl font-bold leading-tight text-white lg:text-5xl text-balance drop-shadow-lg">
+      <div className="absolute bottom-28 lg:bottom-32 left-6 md:left-12 z-10 max-w-xl space-y-3 pointer-events-none">
+        <h1 className="text-3xl font-black leading-tight text-white lg:text-5xl text-balance drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
           اكتشف عقارك المثالي على الخريطة
         </h1>
-        <p className="text-lg text-white/90 drop-shadow-md text-pretty">
+        <p className="text-base lg:text-lg text-zinc-100 font-medium drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] text-pretty max-w-md">
           استخدم الفلاتر للبحث عن أفضل العقارات في منطقتك
         </p>
       </div>
 
       {/* Stats Bar - Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 bg-black/50 backdrop-blur-sm">
-        <div className="container mx-auto flex items-center justify-around py-4 px-4">
+      <div className="absolute bottom-0 left-0 right-0 z-10 bg-black/60 dark:bg-black/80 backdrop-blur-md border-t border-white/10">
+        <div className="container mx-auto flex items-center justify-around py-3.5 px-4">
           <div className="text-center">
-            <div className="text-2xl font-bold text-white">500+</div>
-            <div className="text-sm text-white/70">عقار متاح</div>
+            <div className="text-2xl lg:text-3xl font-black text-white drop-shadow-sm">500+</div>
+            <div className="text-xs lg:text-sm font-semibold text-zinc-300">عقار متاح</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-white">1000+</div>
-            <div className="text-sm text-white/70">مستخدم نشط</div>
+            <div className="text-2xl lg:text-3xl font-black text-white drop-shadow-sm">1000+</div>
+            <div className="text-xs lg:text-sm font-semibold text-zinc-300">مستخدم نشط</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-white">50+</div>
-            <div className="text-sm text-white/70">مدينة</div>
+            <div className="text-2xl lg:text-3xl font-black text-white drop-shadow-sm">50+</div>
+            <div className="text-xs lg:text-sm font-semibold text-zinc-300">مدينة</div>
           </div>
         </div>
       </div>
