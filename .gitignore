@@ -28,9 +28,6 @@ pnpm-debug.log*
 .env*.local
 .env
 
-# vercel
-.vercel
-
 # typescript
 *.tsbuildinfo
 

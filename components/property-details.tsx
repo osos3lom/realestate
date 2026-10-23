@@ -15,8 +15,6 @@ import {
   Bath,
   Maximize,
   MapPin,
-  Phone,
-  Mail,
   Heart,
   Share2,
   ChevronRight,
@@ -24,6 +22,8 @@ import {
   Check,
   Send,
   User,
+  Info,
+  ExternalLink,
 } from "lucide-react"
 
 interface Property {
@@ -69,7 +69,9 @@ export function PropertyDetails({ property }: PropertyDetailsProps) {
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    alert("تم إرسال رسالتك بنجاح! سيتواصل معك الوكيل قريباً.")
+    alert(
+      "هذا العقار وبيانات الوكيل افتراضية لأغراض العرض التجريبي فقط (Demo). لطلب خدمات التطوير، تفضل بزيارة: https://www.osamamaalam.com/"
+    )
     setContactForm({ ...contactForm, name: "", phone: "" })
   }
 
@@ -87,6 +89,25 @@ export function PropertyDetails({ property }: PropertyDetailsProps) {
         <ChevronLeft className="h-4 w-4" />
         <span className="text-foreground">{property.title}</span>
       </nav>
+
+      {/* Demo Disclaimer Banner */}
+      <div className="mb-6 rounded-2xl border border-primary/25 bg-primary/5 p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs sm:text-sm">
+        <div className="flex items-center gap-2.5">
+          <Info className="h-5 w-5 text-primary shrink-0" />
+          <span className="text-muted-foreground">
+            <strong className="text-foreground">بيانات تجريبية:</strong> هذا العقار وجميع التفاصيل والأسعار المعروضة افتراضية لأغراض العرض فقط وليست حقيقية.
+          </span>
+        </div>
+        <a
+          href="https://www.osamamaalam.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-bold text-primary hover:underline inline-flex items-center gap-1 shrink-0"
+        >
+          <span>لطلب خدمات التطوير: osamamaalam.com</span>
+          <ExternalLink className="h-3.5 w-3.5" />
+        </a>
+      </div>
 
       <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
         {/* Main Content */}
@@ -258,7 +279,7 @@ export function PropertyDetails({ property }: PropertyDetailsProps) {
           {/* Agent Card */}
           <Card className="sticky top-24">
             <CardHeader>
-              <CardTitle>تواصل مع الوكيل</CardTitle>
+              <CardTitle>تواصل مع الوكيل (تجريبي)</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               {/* Agent Info */}
@@ -268,22 +289,19 @@ export function PropertyDetails({ property }: PropertyDetailsProps) {
                 </div>
                 <div>
                   <div className="font-semibold text-foreground">{property.agent.name}</div>
-                  <div className="text-sm text-muted-foreground">وكيل عقاري</div>
+                  <div className="text-sm text-muted-foreground">وكيل عقاري افتراضي (Demo)</div>
                 </div>
               </div>
 
-              {/* Contact Buttons */}
-              <div className="flex gap-3">
-                <Button className="flex-1" asChild>
-                  <a href={`tel:${property.agent.phone}`}>
-                    <Phone className="ml-2 h-4 w-4" />
-                    اتصال
-                  </a>
-                </Button>
-                <Button variant="outline" className="flex-1 bg-transparent" asChild>
-                  <a href={`mailto:${property.agent.email}`}>
-                    <Mail className="ml-2 h-4 w-4" />
-                    إيميل
+              {/* Developer Service CTA */}
+              <div className="rounded-xl bg-primary/5 border border-primary/20 p-3 text-xs space-y-2">
+                <p className="text-muted-foreground">
+                  بيانات هذا الوكيل غير حقيقية. لطلب خدمات تطوير وبرمجة منصتك الخاصة:
+                </p>
+                <Button size="sm" className="w-full gap-1.5" asChild>
+                  <a href="https://www.osamamaalam.com/" target="_blank" rel="noopener noreferrer">
+                    <span>تواصل مع المطور (osamamaalam.com)</span>
+                    <ExternalLink className="h-3.5 w-3.5" />
                   </a>
                 </Button>
               </div>
@@ -320,9 +338,9 @@ export function PropertyDetails({ property }: PropertyDetailsProps) {
                     rows={3}
                   />
                 </div>
-                <Button type="submit" className="w-full">
+                <Button type="submit" variant="outline" className="w-full">
                   <Send className="ml-2 h-4 w-4" />
-                  إرسال الرسالة
+                  إرسال رسالة تجريبية
                 </Button>
               </form>
             </CardContent>

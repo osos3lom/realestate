@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ExternalLink } from "lucide-react"
 
 import { ThemeToggle } from "@/components/theme-toggle"
 
@@ -55,6 +55,14 @@ export function Header() {
           <li className="hidden md:block">
             <Button variant="ghost" size="sm" asChild className="text-foreground hover:text-primary text-xs lg:text-sm font-semibold">
               <Link href="/auth/login">تسجيل الدخول</Link>
+            </Button>
+          </li>
+          <li className="hidden md:block">
+            <Button size="sm" asChild className="rounded-full text-xs font-bold gap-1">
+              <a href="https://www.osamamaalam.com/" target="_blank" rel="noopener noreferrer">
+                <span>خدمات التطوير</span>
+                <ExternalLink className="h-3 w-3" />
+              </a>
             </Button>
           </li>
           <li className="flex items-center">
@@ -116,6 +124,16 @@ export function Header() {
             >
               تواصل معنا
             </Link>
+            <a
+              href="https://www.osamamaalam.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-bold text-primary py-2 px-3 rounded-lg hover:bg-muted transition-colors flex items-center justify-between"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span>لطلب خدمات التطوير (osamamaalam.com)</span>
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
             <div className="flex items-center justify-between pt-3 border-t border-border">
               <ThemeToggle />
               <Button size="sm" asChild>

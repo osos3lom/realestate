@@ -1,15 +1,22 @@
 <div dir="rtl" align="right">
 
-# 🏢 منصة العقارات (Realestate)
+# 🏢 منصة العقارات (Realestate) — نسخة عرض تجريبية (Demo)
 
 منصة عقارية عربية حديثة ومتكاملة مبنية باستخدام **Next.js 16** و **React 19**، تتيح للمستخدمين استكشاف العقارات المعروضة للبيع والإيجار في مختلف مدن المملكة العربية السعودية عبر خرائط تفاعلية متطورة وفلاتر بحث ذكية.
+
+> [!IMPORTANT]
+> **تنبيه هام (نسخة تجريبية / Demo):**
+> جميع العقارات، الأسعار، الصور، والأرقام المعروضة في هذا التطبيق هي **بيانات افتراضية لأغراض العرض التجريبي فقط وليست حقيقية**.
+>
+> 💼 **لطلب خدمات التطوير البرمجي أو بناء منصة عقارية مخصصة لمشروعك:**
+> يرجى التواصل مع المطور عبر الموقع الرسمي: **[osamamaalam.com](https://www.osamamaalam.com/)**
 
 ---
 
 ## 🌐 العرض الحي (Live Demo)
 
-- **GitHub Pages**: [osos3lom.github.io/realestate](https://osos3lom.github.io/realestate/)
-- **Vercel Demo**: [v0-app-clone-gold.vercel.app](https://v0-app-clone-gold.vercel.app)
+- **الرابط المباشر (GitHub Pages)**: [osos3lom.github.io/realestate](https://osos3lom.github.io/realestate/)
+- **لطلب خدمات التطوير**: [osamamaalam.com](https://www.osamamaalam.com/)
 
 ---
 
@@ -21,7 +28,7 @@
 - **📄 صفحات تفاصيل العقار (`/realestate/[id]`)**: معرض صور تفاعلي، مواصفات العقار الكاملة، المميزات، ومعلومات الوكيل العقاري مع نموذج تواصل مباشر.
 - **🌙 الوضع الليلي والنهاري (Dark / Light Mode)**: دعم كامل لتبديل المظهر مع تصميم عصري بتأثيرات زجاجية (Glassmorphism).
 - **🇸🇦 دعم كامل للغة العربية (RTL)**: تصميم مبني من الأساس لدعم اتجاه القراءة من اليمين إلى اليسار مع خط **Noto Sans Arabic**.
-- **🔐 صفحات المصادقة**: واجهات جاهزة لتسجيل الدخول، إنشاء حساب جديد، واستعادة كلمة المرور.
+- **🔐 صفحات المصادقة التجريبية**: واجهات جاهزة لتسجيل الدخول، إنشاء حساب جديد، واستعادة كلمة المرور.
 
 ---
 
@@ -44,9 +51,9 @@
 ```text
 app/
 ├── auth/
-│   ├── login/              # صفحة تسجيل الدخول
-│   ├── signup/             # صفحة إنشاء حساب جديد
-│   └── forgot-password/    # صفحة استعادة كلمة المرور
+│   ├── login/              # صفحة تسجيل الدخول (تجريبية)
+│   ├── signup/             # صفحة إنشاء حساب جديد (تجريبية)
+│   └── forgot-password/    # صفحة استعادة كلمة المرور (تجريبية)
 ├── realestate/
 │   ├── [id]/               # صفحة تفاصيل العقار
 │   └── page.tsx            # صفحة قائمة جميع العقارات
@@ -60,6 +67,7 @@ components/
 ├── auth/                   # نماذج المصادقة
 ├── rentals/                # مكونات مستكشف الإيجارات (الخريطة، القائمة، الفلاتر، الشريط الجانبي)
 ├── ui/                     # مكونات واجهة المستخدم (shadcn/ui)
+├── demo-banner.tsx         # شريط التنبيه بالنسخة التجريبية ورابط خدمات التطوير
 ├── header.tsx              # شريط التنقل العلوي
 ├── hero-section.tsx        # القسم الرئيسي مع الخريطة التفاعلية
 ├── control-panel.tsx       # لوحة الفلاتر السريعة
@@ -74,7 +82,7 @@ components/
 └── footer.tsx              # تذييل الصفحة
 
 lib/
-├── data/properties.ts      # بيانات العقارات والمدن السعودية
+├── data/properties.ts      # بيانات العقارات التجريبية والمدن السعودية
 ├── store/rentals-store.ts  # إدارة حالة خريطة وفلاتر الإيجارات (Zustand)
 └── utils.ts                # الدوال المساعدة وإعداد المسارات
 ```
@@ -104,14 +112,9 @@ lib/
 
 ---
 
-## 📦 البناء والاستضافة على GitHub Pages
+## 📦 الاستضافة على GitHub Pages
 
-تم تجهيز المشروع بالكامل للنشر التلقائي على **GitHub Pages** عبر **GitHub Actions** (`.github/workflows/deploy.yml`):
-
-- عند دفع أي تحديث إلى الفرع `main`، يقوم سير العمل ببناء نسخة ثابتة (`out/`) وتمرير `NEXT_PUBLIC_BASE_PATH` تلقائياً ثم نشرها على GitHub Pages.
-- لتفعيل الاستضافة في إعدادات المستودع على GitHub:
-  1. اذهب إلى **Settings** > **Pages**.
-  2. تحت قسم **Build and deployment**، اختر **GitHub Actions** كمصدر (Source).
+المشروع مستضاف على **[osos3lom.github.io/realestate](https://osos3lom.github.io/realestate/)** ويتم نشره تلقائياً عبر **GitHub Actions** (`.github/workflows/deploy.yml`) باستخدام **Node.js 24**.
 
 ---
 
@@ -137,17 +140,15 @@ lib/
 
 **Realestate (منصة العقارات)** is a modern Arabic RTL real estate and rental discovery platform built with **Next.js 16**, **React 19**, **Tailwind CSS v4**, **MapLibre GL JS**, and **Zustand**.
 
+- **Live Demo**: [https://osos3lom.github.io/realestate/](https://osos3lom.github.io/realestate/)
+- **Disclaimer**: All listings, prices, agents, and data across this application are **fictional and for demonstration purposes only**.
+- **Developer Services**: If you would like to hire the developer or build a custom platform, please reach out via **[https://www.osamamaalam.com/](https://www.osamamaalam.com/)**.
+
 ### Quick Start
 
 ```bash
 npm install --legacy-peer-deps
 npm run dev
-```
-
-### Static Export Build
-
-```bash
-npm run build
 ```
 
 ## 📄 License

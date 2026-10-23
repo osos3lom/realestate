@@ -7,7 +7,6 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
-  SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
@@ -22,7 +21,6 @@ import { Separator } from "@/components/ui/separator";
 import {
   Home,
   Heart,
-  SlidersHorizontal,
   RotateCcw,
   Building2,
   Building,
@@ -31,11 +29,11 @@ import {
   MapPin,
   Sparkles,
   ArrowRight,
+  ExternalLink,
 } from "lucide-react";
 import { useRentalsStore } from "@/lib/store/rentals-store";
 import {
   saudiCities,
-  propertyTypeLabels,
   type PropertyType,
 } from "@/lib/data/properties";
 import { cn } from "@/lib/utils";
@@ -108,7 +106,7 @@ export function RentalsSidebar({
             </div>
             <div>
               <span className="text-base font-bold">منصة عقارية</span>
-              <span className="block text-[11px] font-normal text-muted-foreground">خريطة الإيجارات</span>
+              <span className="block text-[11px] font-normal text-muted-foreground">نسخة عرض تجريبية (Demo)</span>
             </div>
           </Link>
 
@@ -133,7 +131,7 @@ export function RentalsSidebar({
               >
                 <div className="flex items-center gap-2">
                   <Home className="size-4" />
-                  <span>جميع العقارات</span>
+                  <span>جميع العقارات (تجريبي)</span>
                 </div>
                 <SidebarMenuBadge className="rounded-full px-2 text-[11px]">
                   {listings.length}
@@ -310,8 +308,8 @@ export function RentalsSidebar({
         </SidebarGroup>
       </SidebarContent>
 
-      {/* Footer / Reset Filters */}
-      <SidebarFooter className="p-4 border-t border-border">
+      {/* Footer / Reset Filters & Developer CTA */}
+      <SidebarFooter className="p-4 border-t border-border space-y-2.5">
         <Button
           variant="outline"
           onClick={resetFilters}
@@ -320,6 +318,18 @@ export function RentalsSidebar({
           <RotateCcw className="size-3.5" />
           <span>إعادة ضبط جميع الفلاتر</span>
         </Button>
+        <div className="rounded-xl bg-primary/5 border border-primary/20 p-2.5 text-[11px] text-center space-y-1">
+          <p className="text-muted-foreground">جميع البيانات للعرض التجريبي فقط</p>
+          <a
+            href="https://www.osamamaalam.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-1 font-bold text-primary hover:underline"
+          >
+            <span>لطلب خدمات التطوير: osamamaalam.com</span>
+            <ExternalLink className="size-3" />
+          </a>
+        </div>
       </SidebarFooter>
     </Sidebar>
   );

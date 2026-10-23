@@ -1,18 +1,18 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Noto_Sans_Arabic } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
 const notoSansArabic = Noto_Sans_Arabic({ subsets: ["arabic"] })
 
 export const metadata: Metadata = {
-  title: "realestate - منصة العقارات",
-  description: "اكتشف فرص استثمارية مميزة. سوّق عقاراتك بسهولة. ابحث عن منزل أحلامك.",
-    generator: 'v0.app'
+  title: "realestate - منصة العقارات (نسخة تجريبية)",
+  description:
+    "نسخة عرض تجريبية لمنصة عقارية تفاعلية. جميع البيانات المعروضة افتراضية ولأغراض العرض فقط. لطلب خدمات التطوير: osamamaalam.com",
 }
 
 import { ThemeProvider } from "@/components/theme-provider"
+import { DemoBanner } from "@/components/demo-banner"
 
 export default function RootLayout({
   children,
@@ -24,8 +24,8 @@ export default function RootLayout({
       <body className={`font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}
+          <DemoBanner />
         </ThemeProvider>
-        <Analytics />
       </body>
     </html>
   )
