@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/utils";
+
 export type PropertyType =
   | "شقة"
   | "فيلا"
@@ -63,7 +65,7 @@ export const saudiCities = [
   { name: "مكة المكرمة", lat: 21.4225, lng: 39.8262, zoom: 12 },
 ];
 
-export const allProperties: Property[] = [
+const rawProperties: Property[] = [
   {
     id: "1",
     title: "شقة للبيع بتصميم حديث",
@@ -460,6 +462,15 @@ export const allProperties: Property[] = [
     },
   },
 ];
+
+export const allProperties: Property[] = rawProperties.map((property) => ({
+  ...property,
+  images: property.images.map(withBasePath),
+  agent: {
+    ...property.agent,
+    avatar: property.agent.avatar ? withBasePath(property.agent.avatar) : undefined,
+  },
+}));
 
 export function getAllProperties(): Property[] {
   return allProperties;

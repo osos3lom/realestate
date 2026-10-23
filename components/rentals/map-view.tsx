@@ -6,6 +6,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { useTheme } from "next-themes";
 import { useRentalsStore } from "@/lib/store/rentals-store";
 import { propertyTypeLabels } from "@/lib/data/properties";
+import { withBasePath } from "@/lib/utils";
 
 const MAP_STYLES: Record<string, any> = {
   light: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
@@ -206,6 +207,9 @@ export function RentalsMapView() {
 
         if (!mapRef.current) return;
 
+        const fallbackImg = withBasePath("/modern-apartment-exterior.png");
+        const detailUrl = withBasePath(`/realestate/${listing.id}`);
+
         const popupContent = `
           <div dir="rtl" class="listing-popup-content font-sans">
             <div class="relative w-full h-48 rounded-t-xl overflow-hidden bg-muted">
@@ -213,7 +217,7 @@ export function RentalsMapView() {
                 src="${listing.images[0]}" 
                 alt="${listing.title}"
                 class="w-full h-full object-cover"
-                onerror="this.src='/modern-apartment-exterior.png'"
+                onerror="this.src='${fallbackImg}'"
               />
               <button 
                 class="close-popup-btn absolute top-3 left-3 w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-all shadow-md z-10"
@@ -250,7 +254,7 @@ export function RentalsMapView() {
                   <span class="text-xs text-muted-foreground"> / ليلة</span>
                 </div>
                 <a 
-                  href="/realestate/${listing.id}" 
+                  href="${detailUrl}" 
                   class="px-3 py-1.5 bg-primary text-primary-foreground text-xs font-medium rounded-lg hover:bg-primary/90 transition-colors"
                 >
                   التفاصيل

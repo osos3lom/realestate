@@ -1,7 +1,13 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { PropertyDetails } from "@/components/property-details"
-import { getPropertyById } from "@/lib/data/properties"
+import { getAllProperties, getPropertyById } from "@/lib/data/properties"
+
+export function generateStaticParams() {
+  return getAllProperties().map((property) => ({
+    id: property.id,
+  }))
+}
 
 export default async function PropertyPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params

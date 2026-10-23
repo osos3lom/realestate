@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Bed, Bath, Maximize, MapPin } from "lucide-react"
+import { withBasePath } from "@/lib/utils"
 
 const properties = [
   {
@@ -14,7 +15,7 @@ const properties = [
     bathrooms: 3,
     area: 287,
     price: 229994,
-    image: "/modern-apartment-exterior.png",
+    image: withBasePath("/modern-apartment-exterior.png"),
   },
   {
     id: "2",
@@ -25,7 +26,7 @@ const properties = [
     bathrooms: 2,
     area: 200,
     price: 200000,
-    image: "/luxury-apartment-living-room.png",
+    image: withBasePath("/luxury-apartment-living-room.png"),
   },
   {
     id: "3",
@@ -36,7 +37,7 @@ const properties = [
     bathrooms: 4,
     area: 450,
     price: 1500000,
-    image: "/modern-villa-exterior-white-architecture.jpg",
+    image: withBasePath("/modern-villa-exterior-white-architecture.jpg"),
   },
   {
     id: "4",
@@ -47,7 +48,7 @@ const properties = [
     bathrooms: 2,
     area: 150,
     price: 35000,
-    image: "/cozy-apartment-bedroom-interior.jpg",
+    image: withBasePath("/cozy-apartment-bedroom-interior.jpg"),
   },
 ]
 
@@ -67,7 +68,7 @@ export function FeaturedProperties() {
             <Card key={property.id} className="overflow-hidden group hover:shadow-lg transition-shadow">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
-                  src={property.image || "/placeholder.svg"}
+                  src={property.image || withBasePath("/placeholder.svg")}
                   alt={property.title}
                   className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
